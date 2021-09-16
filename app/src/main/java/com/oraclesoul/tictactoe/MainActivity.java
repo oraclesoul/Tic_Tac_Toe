@@ -58,6 +58,8 @@ public class MainActivity extends AppCompatActivity {
                     if(!s1.equals("") && s1.equals(s2) && s2.equals(s3))
                     {
                         Toast.makeText(this, "Player "+(1-turn)+" won", Toast.LENGTH_SHORT).show();
+                        finish();
+                        startActivity(getIntent());
                     }
             }
         }
