@@ -9,17 +9,22 @@ import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
+    int[][] win_pos = {{0,1,2} , {3,4,5} , {6,7,8} , {0,3,6} , {1,4,7} , {2,5,8} , {0,4,8} , {2,4,6}};
+
+    int turn = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        int sId = this.getResources().getIdentifier("status","id",this.getPackageName());
+        TextView sTv = (TextView)findViewById(sId);
+        sTv.setText("Player " + turn);
     }
-    int[][] win_pos = {{0,1,2} , {3,4,5} , {6,7,8} , {0,3,6} , {1,4,7} , {2,5,8} , {0,4,8} , {2,4,6}};
 
-    int[][] old_values = {{-1,-1,-1},{-1,-1,-1},{-1,-1,-1}};
-//    boolean game_active = true;
-    int turn = 0;
+
+
+
 
     public void cellTapped(View view)
     {
@@ -39,7 +44,7 @@ public class MainActivity extends AppCompatActivity {
             {
                 tvClicked.setText(R.string.turn1);
             }
-            turn = 1-turn;
+
 
             boolean isWon = false;
             for(int i=0;i<win_pos.length;i++)
@@ -57,11 +62,16 @@ public class MainActivity extends AppCompatActivity {
                     String s3 = ((TextView)findViewById(ri3)).getText().toString();
                     if(!s1.equals("") && s1.equals(s2) && s2.equals(s3))
                     {
-                        Toast.makeText(this, "Player "+(1-turn)+" won", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(this, "Player "+ turn +" won", Toast.LENGTH_SHORT).show();
                         finish();
                         startActivity(getIntent());
                     }
             }
+
+            turn = 1-turn;
+            int sId = this.getResources().getIdentifier("status","id",this.getPackageName());
+            TextView sTv = (TextView)findViewById(sId);
+            sTv.setText("Player " + turn);
         }
 
 
