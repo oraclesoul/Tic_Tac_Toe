@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#FDD835"
     tools:context=".MainActivity">
 
     <LinearLayout
@@ -168,8 +169,11 @@
         android:id="@+id/status"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="#FDD835"
         android:gravity="center"
-        android:text="Status"
+        android:padding="10dp"
+        android:textColor="#000000"
+        android:textSize="34sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
