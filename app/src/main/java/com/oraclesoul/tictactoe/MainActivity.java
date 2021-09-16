@@ -43,6 +43,7 @@ public class MainActivity extends AppCompatActivity {
                  startActivity(getIntent());
              }
          });
+         alertDialog.setCancelable(false);
          alertDialog.setNegativeButton("Exit", new DialogInterface.OnClickListener() {
              @Override
              public void onClick(DialogInterface dialogInterface, int i) {
