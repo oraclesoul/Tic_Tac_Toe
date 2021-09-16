@@ -49,10 +49,13 @@ public class MainActivity extends AppCompatActivity {
                     String res3 = 'c' + Integer.toString(win_pos[i][2]);
 
 
-                    int ri1 = this.getResources().getIdentifier("tv1",res1,this.getPackageName());
-                    int ri2  = this.getResources().getIdentifier("tv2",res2,this.getPackageName());
-                    int ri3 = this.getResources().getIdentifier("tv3",res3,this.getPackageName());
-                    if(((TextView)findViewById(ri1)).getText()==((TextView) findViewById(ri2)).getText() && ((TextView)findViewById(ri1)).getText() == ((TextView)findViewById(ri3)).getText() )
+                    int ri1 = this.getResources().getIdentifier(res1,"id",this.getPackageName());
+                    int ri2  = this.getResources().getIdentifier(res2,"id",this.getPackageName());
+                    int ri3 = this.getResources().getIdentifier(res3,"id",this.getPackageName());
+                    String s1 = ((TextView)findViewById(ri1)).getText().toString();
+                    String s2 = ((TextView)findViewById(ri2)).getText().toString();
+                    String s3 = ((TextView)findViewById(ri3)).getText().toString();
+                    if(!s1.equals("") && s1.equals(s2) && s2.equals(s3))
                     {
                         Toast.makeText(this, "Player "+(1-turn)+" won", Toast.LENGTH_SHORT).show();
                     }
